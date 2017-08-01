@@ -1,0 +1,17 @@
+version: '2'
+services:
+    app:
+        build: ./app
+        command: gunicorn app:application -b :8000 --name app --log-level=debug --log-file=-
+        expose:
+            - "8000"
+        restart: always
+        working_dir: /opt/app
+    server:
+        build: ./server
+        command: nginx -g "daemon off;"
+        links:
+            - app:app
+        ports:
+            - "80:80"
+        restart: always
