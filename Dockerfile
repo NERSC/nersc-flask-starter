@@ -8,4 +8,4 @@ RUN \
         nginx
 
 ADD nginx.conf /etc/nginx/nginx.conf
-ADD static /opt/app/static
+ADD app/static /opt/app/static

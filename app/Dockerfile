@@ -22,5 +22,5 @@ RUN \
         gunicorn
 
 ADD app.py wsgi.py /opt/app/
+ADD static /opt/app/static/
 ADD templates /opt/app/templates/
-RUN ls -laR /opt/app/
